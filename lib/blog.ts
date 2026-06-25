@@ -24,17 +24,6 @@ La Savoie bénéficie d'un climat montagnard caractérisé par des précipitatio
 
 Les toitures exposées au nord ou ombragées par des arbres sont encore plus vulnérables. Une mousse non traitée peut réduire de 30 à 50 % la durée de vie d'une toiture.
 
-## La meilleure période pour démoussager
-
-**Le printemps (mars à mai)** est la période idéale pour démoussager en Savoie :
-- Les températures sont positives, permettant une bonne adhérence des traitements
-- L'humidité favorise l'action des produits biocides
-- La toiture séchera correctement après intervention
-
-**L'automne (septembre à novembre)** est aussi approprié, avant les premières neiges.
-
-**Évitez** les périodes de gel (risque pour les produits et votre sécurité) et les fortes chaleurs estivales (les produits s'évaporent trop vite).
-
 ## Les signes qui indiquent qu'il faut intervenir
 
 - Présence visible de mousses vertes ou brunes
@@ -54,7 +43,7 @@ Un démoussage professionnel comprend généralement :
 
 ## Fréquence recommandée
 
-En Savoie, nous recommandons un démoussage tous les **3 à 5 ans** pour les toitures exposées à l'humidité. Combiné à un traitement hydrofuge, vous pourrez espacer les interventions.
+En Savoie, nous recommandons un démoussage tous les **2 à 5 ans** pour les toitures exposées à l'humidité. Combiné à un traitement hydrofuge, vous pourrez espacer les interventions.
 
 ## Conclusion
 

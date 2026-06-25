@@ -32,6 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function stripBold(text: string): string {
+  return text.replace(/\*\*/g, '')
+}
+
 function renderContent(content: string) {
   const lines = content.split('\n')
   const elements: React.ReactNode[] = []
@@ -43,19 +47,19 @@ function renderContent(content: string) {
     if (line.startsWith('## ')) {
       elements.push(
         <h2 key={i} className="font-sora font-bold text-2xl text-white mt-10 mb-4">
-          {line.replace('## ', '')}
+          {stripBold(line.replace('## ', ''))}
         </h2>
       )
     } else if (line.startsWith('### ')) {
       elements.push(
         <h3 key={i} className="font-sora font-semibold text-xl text-white mt-8 mb-3">
-          {line.replace('### ', '')}
+          {stripBold(line.replace('### ', ''))}
         </h3>
       )
     } else if (line.startsWith('- ')) {
       const items: string[] = []
       while (i < lines.length && lines[i].startsWith('- ')) {
-        items.push(lines[i].replace('- ', ''))
+        items.push(stripBold(lines[i].replace('- ', '')))
         i++
       }
       elements.push(
@@ -73,7 +77,7 @@ function renderContent(content: string) {
       const items: string[] = []
       let num = 1
       while (i < lines.length && lines[i].startsWith(`${num}. `)) {
-        items.push(lines[i].replace(`${num}. `, ''))
+        items.push(stripBold(lines[i].replace(`${num}. `, '')))
         i++
         num++
       }
@@ -90,18 +94,12 @@ function renderContent(content: string) {
         </ol>
       )
       continue
-    } else if (line.startsWith('**') && line.endsWith('**')) {
-      elements.push(
-        <p key={i} className="font-semibold text-white font-inter text-base my-3">
-          {line.replace(/\*\*/g, '')}
-        </p>
-      )
     } else if (line.trim() === '') {
       // skip empty lines
     } else {
       elements.push(
         <p key={i} className="text-white/60 font-inter text-base leading-relaxed my-3">
-          {line}
+          {stripBold(line)}
         </p>
       )
     }
