@@ -48,10 +48,10 @@ En Savoie, nous recommandons un démoussage tous les **2 à 5 ans** pour les toi
 ## Conclusion
 
 Ne laissez pas les mousses dégrader silencieusement votre toiture. Un entretien régulier est bien moins coûteux qu'une réfection complète de couverture. Contactez RENOVA'TOIT 73 pour un diagnostic gratuit de votre toiture.`,
-    date: '2024-03-15',
+    date: '2026-06-25',
     readTime: '5 min',
     category: 'Conseils',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
+    image: '/demoussage.jpg',
     metaTitle: "Quand démoussager sa toiture en Savoie ? Guide 2024 — RENOVA'TOIT 73",
     metaDescription:
       "Découvrez la meilleure période pour démoussager votre toiture en Savoie (73). Conseils d'expert, signes d'alerte et processus professionnel. Guide complet.",
@@ -93,14 +93,6 @@ Les mousses ont besoin d'humidité pour se développer. Une toiture hydrofugée 
 ### Longévité accrue
 Un traitement hydrofuge de qualité peut doubler la durée de vie de vos tuiles. Un investissement rentable sur le long terme.
 
-## Durée de protection
-
-Selon la qualité du produit et les conditions climatiques :
-- **Produits standards** : 3 à 5 ans
-- **Produits professionnels haute performance** : 7 à 10 ans
-
-Nous utilisons exclusivement des produits professionnels pour garantir la meilleure protection possible.
-
 ## Quand appliquer un hydrofuge ?
 
 **Conditions idéales :**
@@ -117,10 +109,10 @@ Nous utilisons exclusivement des produits professionnels pour garantir la meille
 ## Conclusion
 
 Le traitement hydrofuge n'est pas un luxe mais une nécessité pour les toitures savoyardes. Il protège votre investissement contre les agressions climatiques spécifiques à la montagne. Demandez votre devis gratuit à RENOVA'TOIT 73.`,
-    date: '2024-02-20',
+    date: '2026-06-26',
     readTime: '6 min',
     category: 'Traitements',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',
+    image: '/hydrofuge.jpg',
     metaTitle: "Traitement Hydrofuge Toiture Montagne — Guide Expert RENOVA'TOIT 73",
     metaDescription:
       "Pourquoi le traitement hydrofuge est essentiel pour les toitures de montagne en Savoie. Conseils d'expert, durée de protection et processus d'application.",
@@ -188,7 +180,7 @@ L'entretien régulier des gouttières est un investissement minime comparé aux 
     date: '2024-01-10',
     readTime: '5 min',
     category: 'Entretien',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80',
+    image: '/gouttieres.jpg',
     metaTitle: "Entretien Gouttières Savoie — Fréquence & Conseils RENOVA'TOIT 73",
     metaDescription:
       "Guide complet sur l'entretien des gouttières en Savoie (73). Fréquence recommandée, risques d'obstruction et conseils d'experts. Devis gratuit.",
@@ -266,7 +258,7 @@ La peinture de toiture est un excellent investissement si votre couverture est e
     date: '2023-12-05',
     readTime: '7 min',
     category: 'Peinture',
-    image: 'https://images.unsplash.com/photo-1545259742-f4a735d6c5e3?w=1200&q=80',
+    image: '/peinture.jpg',
     metaTitle: "Peinture de Toiture : Avantages & Conseils — RENOVA'TOIT 73 Savoie",
     metaDescription:
       "Tout savoir sur la peinture de toiture : avantages, matériaux compatibles, durée de vie et processus. Guide expert par RENOVA'TOIT 73 en Savoie.",
