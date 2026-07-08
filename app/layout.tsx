@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | RENOVA'TOIT 73",
   },
   description:
-    "Spécialiste du nettoyage, démoussage, traitement hydrofuge et peinture de toiture en Savoie (73). Intervient à Chambéry, Aix-les-Bains, Albertville et toute la Savoie. Devis gratuit.",
+    "Spécialiste du nettoyage, démoussage, traitement hydrofuge et peinture de toiture en Savoie, Haute-Savoie, Ain, Isère, Rhône. Devis gratuit sous 24h.",
   keywords: [
     'nettoyage toiture Savoie',
     'démoussage toiture 73',
