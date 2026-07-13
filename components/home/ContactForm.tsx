@@ -331,7 +331,7 @@ export default function ContactForm() {
                     </button>
 
                     <p className="text-white/20 text-xs font-inter text-center">
-                      Devis gratuit, sans engagement · Devis gratuit, sans engagement
+                      Devis gratuit, sans engagement
                     </p>
                   </motion.form>
                 )}
