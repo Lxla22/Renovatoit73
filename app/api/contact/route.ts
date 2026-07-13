@@ -3,21 +3,28 @@ import nodemailer from 'nodemailer'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
-    const { name, phone, email, ville, services, message } = body
+    const formData = await req.formData()
+
+    const name = formData.get('name') as string
+    const phone = formData.get('phone') as string
+    const email = formData.get('email') as string
+    const ville = formData.get('ville') as string
+    const adresse = formData.get('adresse') as string || ''
+    const codePostal = formData.get('codePostal') as string || ''
+    const message = formData.get('message') as string || ''
+    const servicesRaw = formData.getAll('services') as string[]
+    const photos = formData.getAll('photos') as File[]
 
     // Validation
     if (!name || !phone || !email || !ville) {
       return NextResponse.json({ error: 'Champs requis manquants' }, { status: 400 })
     }
 
-    // Basic email format check
     const emailRegex = /^\S+@\S+\.\S+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Email invalide' }, { status: 400 })
     }
 
-    // Configure transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
       port: Number(process.env.SMTP_PORT) || 587,
@@ -32,18 +39,31 @@ export async function POST(req: NextRequest) {
       demoussage: 'Démoussage de toiture',
       nettoyage: 'Nettoyage de toiture',
       hydrofuge: 'Traitement hydrofuge',
+      'hydrofuge-colore': 'Traitement hydrofuge coloré',
       peinture: 'Peinture de toiture',
       gouttieres: 'Nettoyage de gouttières',
       terrasses: 'Nettoyage de terrasses',
       autre: 'Autre / Je ne sais pas',
     }
 
-    const servicesArray: string[] = Array.isArray(services) ? services : (services ? [services] : [])
-    const serviceLabel = servicesArray.length > 0
-      ? servicesArray.map((s: string) => serviceLabels[s] || s).join(', ')
+    const serviceLabel = servicesRaw.length > 0
+      ? servicesRaw.map((s) => serviceLabels[s] || s).join(', ')
       : 'Non précisé'
 
-    // HTML email body
+    // Prepare attachments
+    const attachments = await Promise.all(
+      photos
+        .filter((f) => f && f.size > 0)
+        .map(async (file) => {
+          const buffer = Buffer.from(await file.arrayBuffer())
+          return {
+            filename: file.name,
+            content: buffer,
+            contentType: file.type,
+          }
+        })
+    )
+
     const htmlBody = `
       <!DOCTYPE html>
       <html>
@@ -79,6 +99,8 @@ export async function POST(req: NextRequest) {
               <div class="label">Email</div>
               <div class="value"><a href="mailto:${email}" style="color: #FF6A00;">${email}</a></div>
             </div>
+            ${adresse ? `<div class="field"><div class="label">Adresse</div><div class="value">${adresse}</div></div>` : ''}
+            ${codePostal ? `<div class="field"><div class="label">Code postal</div><div class="value">${codePostal}</div></div>` : ''}
             <div class="field">
               <div class="label">Ville</div>
               <div class="value">${ville}</div>
@@ -93,6 +115,12 @@ export async function POST(req: NextRequest) {
               <div class="message-box">${message.replace(/\n/g, '<br>')}</div>
             </div>
             ` : ''}
+            ${attachments.length > 0 ? `
+            <div class="field">
+              <div class="label">Photos</div>
+              <div class="value">${attachments.length} photo(s) en pièce(s) jointe(s)</div>
+            </div>
+            ` : ''}
           </div>
           <div class="footer">
             Demande reçue le ${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
@@ -103,16 +131,15 @@ export async function POST(req: NextRequest) {
       </html>
     `
 
-    // Send to business
     await transporter.sendMail({
       from: `"RENOVA'TOIT 73 — Site Web" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL || 'renovatoit73@gmail.com',
       subject: `🏠 Devis demandé — ${name} (${ville})`,
       html: htmlBody,
       replyTo: email,
+      attachments,
     })
 
-    // Auto-reply to client
     await transporter.sendMail({
       from: `"RENOVA'TOIT 73" <${process.env.SMTP_USER}>`,
       to: email,
@@ -135,7 +162,7 @@ export async function POST(req: NextRequest) {
               <p>Bonjour <strong>${name}</strong>,</p>
               <p>Nous avons bien reçu votre demande de devis pour <strong>${serviceLabel}</strong> à <strong>${ville}</strong>.</p>
               <div class="highlight">
-                Nous vous recontacterons <strong>sous 24h</strong> (jours ouvrés) pour vous proposer un devis gratuit et personnalisé.
+                Nous vous recontacterons rapidement (jours ouvrés) pour vous proposer un devis gratuit et personnalisé.
               </div>
               <p>En attendant, n'hésitez pas à nous appeler directement :</p>
               <p style="font-size: 20px; font-weight: bold; color: #FF6A00;">📞 07 53 36 18 80</p>

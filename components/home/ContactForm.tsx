@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle, Phone, Mail } from 'lucide-react'
@@ -30,6 +30,7 @@ const serviceOptions = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const {
     register,
     handleSubmit,
@@ -43,14 +44,29 @@ export default function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setStatus('loading')
     try {
+      const formData = new window.FormData()
+      formData.append('name', data.name)
+      formData.append('phone', data.phone)
+      formData.append('email', data.email)
+      formData.append('ville', data.ville)
+      formData.append('adresse', data.adresse || '')
+      formData.append('codePostal', data.codePostal || '')
+      formData.append('message', data.message || '')
+      const servicesArray = Array.isArray(data.services) ? data.services : (data.services ? [data.services] : [])
+      servicesArray.forEach((s: string) => formData.append('services', s))
+      if (fileInputRef.current?.files) {
+        Array.from(fileInputRef.current.files).forEach((file) => {
+          formData.append('photos', file)
+        })
+      }
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: formData,
       })
       if (res.ok) {
         setStatus('success')
         reset()
+        if (fileInputRef.current) fileInputRef.current.value = ''
       } else {
         setStatus('error')
       }
@@ -294,6 +310,7 @@ export default function ContactForm() {
                         type="file"
                         accept="image/*"
                         multiple
+                        ref={fileInputRef}
                         className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white/50 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[#FF6A00]/10 file:text-[#FF6A00] hover:file:bg-[#FF6A00]/20 cursor-pointer"
                       />
                       <p className="text-white/20 text-xs font-inter mt-1.5">Transmettez des photos pour un devis plus précis (optionnel)</p>
