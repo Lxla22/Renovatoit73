@@ -11,6 +11,8 @@ interface FormData {
   phone: string
   email: string
   ville: string
+  adresse: string
+  codePostal: string
   services: string[]
   message: string
 }
@@ -19,6 +21,7 @@ const serviceOptions = [
   { value: 'demoussage', label: 'Démoussage de toiture' },
   { value: 'nettoyage', label: 'Nettoyage de toiture' },
   { value: 'hydrofuge', label: 'Traitement hydrofuge' },
+  { value: 'hydrofuge-colore', label: 'Hydrofuge coloré' },
   { value: 'peinture', label: 'Peinture de toiture' },
   { value: 'gouttieres', label: 'Nettoyage de gouttières' },
   { value: 'terrasses', label: 'Nettoyage de terrasses' },
@@ -195,6 +198,30 @@ export default function ContactForm() {
                           {...register('ville', { required: true })}
                           placeholder="Chambéry"
                           className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors ${errors.ville ? 'border-red-500/50' : 'border-white/10'}`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Row 3 - Adresse & Code postal */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs text-white/40 font-inter uppercase tracking-wider mb-2">
+                          Adresse
+                        </label>
+                        <input
+                          {...register('adresse')}
+                          placeholder="12 rue des Alpes"
+                          className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-white/40 font-inter uppercase tracking-wider mb-2">
+                          Code postal
+                        </label>
+                        <input
+                          {...register('codePostal')}
+                          placeholder="73000"
+                          className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors"
                         />
                       </div>
                     </div>
