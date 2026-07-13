@@ -28,10 +28,7 @@ export default function MentionsLegalesPage() {
 
           <section>
             <h2 className="font-sora font-semibold text-white text-lg mb-4">Hébergement</h2>
-            <p>Netlify Inc.<br />
-            512 2nd Street, Suite 200<br />
-            San Francisco, CA 94107, États-Unis<br />
-            <a href="https://www.netlify.com" className="text-[#FF6A00] hover:underline">www.netlify.com</a></p>
+            <p>Le site est hébergé par Netlify Inc.</p>
           </section>
 
           <section>
