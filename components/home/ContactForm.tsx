@@ -21,7 +21,7 @@ const serviceOptions = [
   { value: 'demoussage', label: 'Démoussage de toiture' },
   { value: 'nettoyage', label: 'Nettoyage de toiture' },
   { value: 'hydrofuge', label: 'Traitement hydrofuge' },
-  { value: 'hydrofuge-colore', label: 'Hydrofuge coloré' },
+  { value: 'hydrofuge-colore', label: 'Traitement hydrofuge coloré' },
   { value: 'peinture', label: 'Peinture de toiture' },
   { value: 'gouttieres', label: 'Nettoyage de gouttières' },
   { value: 'terrasses', label: 'Nettoyage de terrasses' },
@@ -79,7 +79,7 @@ export default function ContactForm() {
                 <span className="text-[#FF6A00]">devis gratuit</span>
               </h2>
               <p className="text-white/50 font-inter text-base leading-relaxed mb-12">
-                Remplissez le formulaire et nous vous recontactons sous 24h avec un devis
+                Remplissez le formulaire et nous vous recontactons rapidement avec un devis
                 personnalisé et sans engagement.
               </p>
 
@@ -140,7 +140,7 @@ export default function ContactForm() {
                       Message envoyé !
                     </h3>
                     <p className="text-white/50 font-inter text-sm">
-                      Nous vous recontacterons sous 24h avec votre devis personnalisé.
+                      Nous vous recontacterons rapidement avec votre devis personnalisé.
                     </p>
                   </motion.div>
                 ) : (
@@ -275,14 +275,28 @@ export default function ContactForm() {
                     {/* Message */}
                     <div>
                       <label className="block text-xs text-white/40 font-inter uppercase tracking-wider mb-2">
-                        Message
+                        Message *
                       </label>
                       <textarea
-                        {...register('message')}
-                        placeholder="Décrivez votre toiture, sa superficie approximative, son état..."
+                        {...register('message', { required: true })}
+                        placeholder="Décrivez votre toiture : superficie approximative, état, et matériau (tuiles terre cuite, béton, ardoise, bac acier...)..."
                         rows={4}
-                        className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors resize-none"
+                        className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors resize-none ${errors.message ? 'border-red-500/50' : 'border-white/10'}`}
                       />
+                    </div>
+
+                    {/* Photos */}
+                    <div>
+                      <label className="block text-xs text-white/40 font-inter uppercase tracking-wider mb-2">
+                        Photos de votre toiture
+                      </label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white/50 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[#FF6A00]/10 file:text-[#FF6A00] hover:file:bg-[#FF6A00]/20 cursor-pointer"
+                      />
+                      <p className="text-white/20 text-xs font-inter mt-1.5">Transmettez des photos pour un devis plus précis (optionnel)</p>
                     </div>
 
                     {/* Error */}
@@ -317,7 +331,7 @@ export default function ContactForm() {
                     </button>
 
                     <p className="text-white/20 text-xs font-inter text-center">
-                      Devis gratuit, sans engagement · Réponse sous 24h
+                      Devis gratuit, sans engagement · Devis gratuit, sans engagement
                     </p>
                   </motion.form>
                 )}
