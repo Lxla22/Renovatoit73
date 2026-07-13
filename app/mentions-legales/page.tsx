@@ -20,7 +20,7 @@ export default function MentionsLegalesPage() {
           <section>
             <h2 className="font-sora font-semibold text-white text-lg mb-4">Éditeur du site</h2>
             <p>RENOVA&apos;TOIT 73<br />
-            Entreprise individuelle<br />
+            Micro-entreprise<br />
             Savoie (73), France<br />
             Téléphone : 07 53 36 18 80<br />
             Email : renovatoit73@gmail.com</p>
@@ -28,8 +28,10 @@ export default function MentionsLegalesPage() {
 
           <section>
             <h2 className="font-sora font-semibold text-white text-lg mb-4">Hébergement</h2>
-            <p>Le site est hébergé par Vercel Inc. / Netlify Inc.<br />
-            Pour tout autre hébergeur, les informations seront mises à jour.</p>
+            <p>Netlify Inc.<br />
+            512 2nd Street, Suite 200<br />
+            San Francisco, CA 94107, États-Unis<br />
+            <a href="https://www.netlify.com" className="text-[#FF6A00] hover:underline">www.netlify.com</a></p>
           </section>
 
           <section>
