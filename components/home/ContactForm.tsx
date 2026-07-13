@@ -206,22 +206,22 @@ export default function ContactForm() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-xs text-white/40 font-inter uppercase tracking-wider mb-2">
-                          Adresse
+                          Adresse *
                         </label>
                         <input
-                          {...register('adresse')}
+                          {...register('adresse', { required: true })}
                           placeholder="12 rue des Alpes"
-                          className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors"
+                          className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors ${errors.adresse ? 'border-red-500/50' : 'border-white/10'}`}
                         />
                       </div>
                       <div>
                         <label className="block text-xs text-white/40 font-inter uppercase tracking-wider mb-2">
-                          Code postal
+                          Code postal *
                         </label>
                         <input
-                          {...register('codePostal')}
+                          {...register('codePostal', { required: true })}
                           placeholder="73000"
-                          className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors"
+                          className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-white placeholder-white/20 font-inter text-sm focus:outline-none focus:border-[#FF6A00]/50 transition-colors ${errors.codePostal ? 'border-red-500/50' : 'border-white/10'}`}
                         />
                       </div>
                     </div>
