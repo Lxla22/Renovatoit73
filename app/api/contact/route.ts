@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
       autre: 'Autre / Je ne sais pas',
     }
 
+
     const serviceLabel = servicesRaw.length > 0
       ? servicesRaw.map((s) => serviceLabels[s] || s).join(', ')
       : 'Non précisé'
