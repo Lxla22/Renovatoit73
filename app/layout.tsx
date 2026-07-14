@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | RENOVA'TOIT 73",
   },
   description:
-    "Spécialiste du nettoyage, démoussage, traitement hydrofuge et peinture de toiture en Savoie, Haute-Savoie, Ain, Isère, Rhône. Devis gratuit sous 24h.",
+    "Spécialiste du nettoyage, démoussage, traitement hydrofuge et peinture de toiture en Savoie (73), Haute-Savoie (74), Isère (38), Rhône (69), Ain (01). Devis gratuit.",
   keywords: [
     'nettoyage toiture Savoie',
     'démoussage toiture 73',
