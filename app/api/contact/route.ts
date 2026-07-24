@@ -36,13 +36,14 @@ export async function POST(req: NextRequest) {
     })
 
     const serviceLabels: Record<string, string> = {
-      demoussage: 'Démoussage de toiture',
-      nettoyage: 'Nettoyage de toiture',
-      hydrofuge: 'Traitement hydrofuge',
+      demoussage: 'Démoussage de toiture (biocide inclus)',
+      'nettoyage-hp': 'Nettoyage haute pression',
+      'hydrofuge-incolore': 'Traitement hydrofuge incolore',
       'hydrofuge-colore': 'Traitement hydrofuge coloré',
       peinture: 'Peinture de toiture',
+      resine: 'Résine / Revêtement',
       gouttieres: 'Nettoyage de gouttières',
-      terrasses: 'Nettoyage de terrasses',
+      terrasses: 'Nettoyage de terrasses / allées',
       autre: 'Autre / Je ne sais pas',
     }
 
