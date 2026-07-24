@@ -18,12 +18,13 @@ interface FormData {
 }
 
 const serviceOptions = [
-  { value: 'demoussage', label: 'Démoussage de toiture (biocide inclus)' },
   { value: 'nettoyage-hp', label: 'Nettoyage haute pression' },
+  { value: 'demoussage-simple', label: 'Démoussage de toiture simple' },
+  { value: 'demoussage-complet', label: 'Démoussage de toiture (biocide et traitement préventif inclus)' },
   { value: 'hydrofuge-incolore', label: 'Traitement hydrofuge incolore' },
   { value: 'hydrofuge-colore', label: 'Traitement hydrofuge coloré' },
   { value: 'peinture', label: 'Peinture de toiture' },
-  { value: 'resine', label: 'Résine / Revêtement' },
+  { value: 'resine', label: 'Résine' },
   { value: 'gouttieres', label: 'Nettoyage de gouttières' },
   { value: 'terrasses', label: 'Nettoyage de terrasses / allées' },
   { value: 'autre', label: 'Autre / Je ne sais pas' },
